@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from .models import initmes, mission, valore, portfc, portfl, indicador, astronauta, portfcl
 
 def index(request):
