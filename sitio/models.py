@@ -45,8 +45,8 @@ class astronauta(models.Model):
 	)
 
 	name = models.CharField('Nome', max_length=100,)
-	text = RichTextField('Texto',)
-	tipo = models.CharField(max_length=9, choices=APPROVAL_CHOICES, default='apollo')
+	texto = RichTextField()
+	tipo = models.CharField(max_length=9, choices=APPROVAL_CHOICES, default='apollo',)
 	photo = models.ImageField(upload_to='sitio/images/astronautas', verbose_name='Foto',)
 
 	def __str__(self):
