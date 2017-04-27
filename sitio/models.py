@@ -1,8 +1,10 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
+from ckeditor.fields import RichTextField
 
 class initmes(models.Model):
 	descript = models.TextField('Mensagem de Início')
+	content = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return self.descript
@@ -15,6 +17,7 @@ class initmes(models.Model):
 class mission(models.Model):
 	title = models.TextField('Mensagem Principal',)
 	text = models.TextField('Texto',)
+	content = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return self.title
@@ -27,6 +30,7 @@ class mission(models.Model):
 class valore(models.Model):
 	item = models.TextField('Missões',)
 	valor = models.CharField('Valor', max_length=100,)
+	content = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return self.item
@@ -47,6 +51,7 @@ class astronauta(models.Model):
 	text = models.TextField('Texto',)
 	tipo = models.CharField(max_length=9, choices=APPROVAL_CHOICES, default='apollo')
 	photo = models.ImageField(upload_to='sitio/images/astronautas', verbose_name='Foto',)
+	content = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return self.name
@@ -59,6 +64,7 @@ class astronauta(models.Model):
 class portfc(models.Model):
 	descript = models.TextField('Nome & Descrição da Empresa',)
 	logo = models.ImageField(upload_to='sitio/images/portifolio', verbose_name='Logo',)
+	content = RichTextField(blank=True, null=True)
 	
 	def __str__(self):
 		return self.descript
@@ -71,6 +77,7 @@ class portfc(models.Model):
 class portfl(models.Model):
 	descript = models.TextField('Nome & Descrição da Empresa',)
 	logo = models.ImageField(upload_to='sitio/images/portifolio', verbose_name='Logo',)
+	content = RichTextField(blank=True, null=True)
 	
 	def __str__(self):
 		return self.descript
@@ -92,6 +99,7 @@ class indicador(models.Model):
 	name = models.CharField('Nome', max_length=100,)
 	percent = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(100)])
 	color = models.CharField(max_length=1, choices=APPROVAL_CHOICES, default='1')
+	content = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return self.name
@@ -112,6 +120,7 @@ class portfcl(models.Model):
 	descript = models.TextField('Nome & Descrição da Empresa',)
 	logo = models.ImageField(upload_to='sitio/images/portifolio', verbose_name='Logo',)
 	andament = models.CharField(max_length=9, choices=APPROVAL_CHOICES, default='const')
+	content = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return self.descript
