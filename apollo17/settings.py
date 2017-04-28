@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # APPS INTERNOS
     'sitio',
 ]
+INSTALLED_APPS.append('colorful')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

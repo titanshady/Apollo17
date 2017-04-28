@@ -134,29 +134,22 @@
 			</div>
 			{% endfor %}
 			<div class="skill-info">
+				
 				<ul>
-					<li><div class="demo demo-1" data-percent="56"></div><p>Faturamento</p></li>
-					<li><div class="demo demo-2" data-percent="80"></div><p>Projetos</p> </li>
-					<li><div class="demo demo-3" data-percent="0"></div><p>NPS</p> </li>
-					<li><div class="demo demo-4" data-percent="87"></div><p>Desempenho</p> </li>
+				{% for indicador in indicadors %}
+					<li><div class="{{indicador.name}}" data-percent="{{indicador.percent}}"></div><p>{{indicador.name}}</p></li>
+				{% endfor %}
 				</ul>
 				<!--circle-chart-->
 				<script src="{% static 'js/jquery.circlechart.js' %}"></script>
-				<script>
-					$('.demo-1').percentcircle();
-						$('.demo-2').percentcircle({
-						animate : true,
-						fillColor: '#e94e02'
-					});
-						$('.demo-3').percentcircle({
-						animate : true,
-						fillColor: '#F2B33F'
-					});
-						$('.demo-4').percentcircle({
-						animate : true,
-						fillColor: '#79302a'
-					});
-				</script>
+				{% for indicador in indicadors %}
+					<script>
+						$('.{{indicador.name}}').percentcircle({
+							animate : true,
+							fillColor: '{{indicador.color}}'
+						});
+					</script>
+				{% endfor %}
 				<!--circle-chart-->
 			</div>
 		</div>
@@ -171,12 +164,12 @@
 				<p>Politica de Reconhecimento Mensal para o trabalho prestado pelos membros da EJECT para a EJECT </p>
 			</div>
 			<div class="team-row">
+				{% for astronauta in astronautas %}
 				<div class="col-md-4 team-grids">
-				{% for apollo in apollos %}
 					<div class="team-img">
-						<img class="img-responsive" src="{{ apollo.photo.url }}" alt="">
+						<img class="img-responsive" src="{{ astronauta.photo.url }}" alt="">
 						<div class="captn">
-							<p> Parabéns Astronauta <span>Apollo </span>{{apollo.text}}</p>
+							<p> Parabéns Astronauta <span>{{ astronauta.tipo|capfirst }} </span>{{astronauta.text}}</p>
 							<div class="social-icons">
 								<ul>
 									<li><a href="#"> </a></li>
@@ -188,55 +181,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="team-agile-apollo">
-						<h4>Astronauta Apollo</h4>
-						<font color="#293D50"<h6>{{apollo.name}}</h6></font>
-					</div>
-				</div>
-				{% endfor %}
-				<div class="col-md-4 team-grids">
-				{% for gemini in geminis %}
-					<div class="team-img">
-						<img class="img-responsive" src="{{ gemini.photo.url }}" alt="">
-						<div class="captn">
-                                                    <p> Parabéns Astronauta <span>Gemini </span>{{gemini.text}}</p>
-							<div class="social-icons">
-								<ul>
-									<li><a href="#"> </a></li>
-									<li><a href="#" class="pin"> </a></li>
-									<li><a href="#" class="in"> </a></li>
-									<li><a href="#" class="be"> </a></li>
-									<li><a href="#" class="vimeo"> </a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="team-agile-gemini">
-						<h4>Astronauta Gemini</h4>
-						<font color="#293D50"<h6>{{gemini.name}}</h6></font>
-					</div>
-				</div>
-				{% endfor %}
-				<div class="col-md-4 team-grids">
-				{% for mercury in mercurys %}
-					<div class="team-img">
-						<img class="img-responsive" src="{{ mercury.photo.url }}" alt="">
-						<div class="captn">
-							<p> Parabéns Astronauta <span>Mercury </span>{{mercury.text}}</p>
-							<div class="social-icons">
-								<ul>
-									<li><a href="#"> </a></li>
-									<li><a href="#" class="pin"> </a></li>
-									<li><a href="#" class="in"> </a></li>
-									<li><a href="#" class="be"> </a></li>
-									<li><a href="#" class="vimeo"> </a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="team-agile-mercury">
-						<h4>Astronauta Mercury</h4>
-						<font color="#293D50"<h6>{{mercury.name}}</h6>
+					<div class="team-agile-{{astronauta.tipo|lower}}">
+						<h4>Astronauta {{ astronauta.tipo|capfirst }}"</h4>
+						<font color="#293D50"<h6>{{astronauta.name}}</h6></font>
 					</div>
 				</div>
 				{% endfor %}
@@ -267,13 +214,13 @@
 		<div class="container">
 			<div class="agileits-title">
 				<h3>Base de Lançamentos</h3>
-				<p>Aqui constam todas as naves que estamos desenvolvendo para lançarmos e as que já foram lançadas para o sucesso!</p>
+				<p>lorem Aqui constam todas as naves que estamos desenvolvendo para lançarmos e as que já foram lançadas para o sucesso!</p>
 			</div> 
 		</div> 
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
 				<ul class="resp-tabs-list">
-					<li class="resp-tab-item"><span>Em Construção</span></li>
+					<li class="resp-tab-item-"><span>Em Construção</span></li>
 					<li class="resp-tab-item"><span>Lançadas</span></li>
 									
 				</ul>	
