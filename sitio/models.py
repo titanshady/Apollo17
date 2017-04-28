@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
 from ckeditor.fields import RichTextField
+from colorful.fields import RGBColorField
 
 class initmes(models.Model):
 	descript = RichTextField('Mensagem de Início')
@@ -49,6 +50,7 @@ class astronauta(models.Model):
 	tipo = models.CharField(max_length=9, choices=APPROVAL_CHOICES, default='apollo',)
 	photo = models.ImageField(upload_to='sitio/images/astronautas', verbose_name='Foto',)
 
+
 	def __str__(self):
 		return self.name
 
@@ -92,7 +94,9 @@ class indicador(models.Model):
 
 	name = models.CharField('Nome', max_length=100,)
 	percent = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(100)])
-	color = models.CharField(max_length=1, choices=APPROVAL_CHOICES, default='1')
+	##color = models.CharField(max_length=1, choices=APPROVAL_CHOICES, default='1')
+	color= RGBColorField()
+
 
 	def __str__(self):
 		return self.name
