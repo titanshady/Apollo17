@@ -1,10 +1,11 @@
-{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+{% load static %}
 <head>
 <title>EJECT - Missão Apollo17</title>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html" />
 <meta name="keywords" content="apollo, missão, eject, astronautas, reconhecimento, gestão a vista" />
 <meta name="description" content ="Portal Apollo17 -  Ferramenta de gestão visual da Missão Apollo 17 da EJECT, um ano de muita luta e aprendizado, onde construiremos naves até então inimaginadas e chegaremos em lugares onde nunca pensariamos chegar.">
 
@@ -137,7 +138,11 @@
 				
 				<ul>
 				{% for indicador in indicadors %}
+<<<<<<< HEAD
 					<li><div class="{{indicador.name}}" data-percent="{{indicador.percent}}"></div><p>{{indicador.name}}</p></li>
+=======
+					<li><div class="demo demo-{{indicador.color}}" data-percent="{{indicador.percent}}"></div><p>{{indicador.name}}</p> </li>
+>>>>>>> origin/master
 				{% endfor %}
 				</ul>
 				<!--circle-chart-->
@@ -163,13 +168,18 @@
 				<h3>Astronautas do Mês</h3>
 				<p>Politica de Reconhecimento Mensal para o trabalho prestado pelos membros da EJECT para a EJECT </p>
 			</div>
+
 			<div class="team-row">
 				{% for astronauta in astronautas %}
 				<div class="col-md-4 team-grids">
 					<div class="team-img">
 						<img class="img-responsive" src="{{ astronauta.photo.url }}" alt="">
 						<div class="captn">
+<<<<<<< HEAD
 							<p> Parabéns Astronauta <span>{{ astronauta.tipo|capfirst }} </span>{{astronauta.text}}</p>
+=======
+						<p> Parabéns Astronauta <span>{{ astronauta.tipo|capfirst }} </span>{{ astronauta.texto }}</p>
+>>>>>>> origin/master
 							<div class="social-icons">
 								<ul>
 									<li><a href="#"> </a></li>
@@ -182,7 +192,11 @@
 						</div>
 					</div>
 					<div class="team-agile-{{astronauta.tipo|lower}}">
+<<<<<<< HEAD
 						<h4>Astronauta {{ astronauta.tipo|capfirst }}"</h4>
+=======
+						<h4>Astronauta {{ astronauta.tipo|capfirst }}</h4>
+>>>>>>> origin/master
 						<font color="#293D50"<h6>{{astronauta.name}}</h6></font>
 					</div>
 				</div>
