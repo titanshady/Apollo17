@@ -89,34 +89,6 @@ class portfl(models.Model):
 
 class indicador(models.Model):
 
-	APPROVAL_CHOICES = (
-    ('1', 'Azul'),
-    ('2', 'Laranja'),
-    ('3', 'Amarelo'),
-    ('4', 'Marrom'),
-	)
-
-	name = models.CharField('Nome', max_length=100,)
-	percent = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(100)])
-	color = models.CharField(max_length=1, choices=APPROVAL_CHOICES, default='1')
-
-class portfl(models.Model):
-	descript = models.TextField('Nome & Descrição da Empresa',)
-	logo = models.ImageField(upload_to='sitio/images/portifolio', verbose_name='Logo',)
-	
-	
-	def __str__(self):
-		return self.descript
-
-
-	class Meta:
-		verbose_name = '7 - Portifólio - Lançado'
-		verbose_name_plural = '7 - Portifólio - Lançados'
-
-class indicador(models.Model):
-
-	
-
 	name = models.CharField('Nome', max_length=100,)
 	percent = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(100)])
 	##color = models.CharField(max_length=1, default='1')
@@ -126,6 +98,8 @@ class indicador(models.Model):
 	def __str__(self):
 		return self.name
 
+		
+	class Meta:
 		verbose_name = '4 - Andamento da Missão: Indicador'
 		verbose_name_plural = '4 - Andamento da Missão: Indicadores'
 
