@@ -1,1 +1,1 @@
-gunicorn apollo17.wsgi --log-file -
+web: gunicorn apollo17.wsgi --log-file -
