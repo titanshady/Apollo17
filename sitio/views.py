@@ -10,12 +10,12 @@ def index(request):
 	porl = portfl.objects.all()
 	indc = indicador.objects.all()
 	portcl = portfcl.objects.all()
-<<<<<<< HEAD
+
 	choice = choicesportf.objects.all()
 
-=======
+
 	astro = astronauta.objects.order_by('name')
->>>>>>> refs/remotes/titanshady/master
+
 	context = {
 		'initmess': slides,
 		'missions': mis,

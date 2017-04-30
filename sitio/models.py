@@ -81,7 +81,6 @@ class portfl(models.Model):
 	
 	def __str__(self):
 		return self.descript
-<<<<<<< HEAD
 
 
 	class Meta:
@@ -95,24 +94,16 @@ class indicador(models.Model):
 	##color = models.CharField(max_length=1, default='1')
 	color= RGBColorField()
 
-=======
->>>>>>> refs/remotes/titanshady/master
 
 	def __str__(self):
 		return self.name
 
 		
 	class Meta:
-<<<<<<< HEAD
 		verbose_name = '4 - Andamento da Missão: Indicador'
 		verbose_name_plural = '4 - Andamento da Missão: Indicadores'
-=======
-		verbose_name = '7 - Portifólio - Lançado'
-		verbose_name_plural = '7 - Portifólio - Lançados'
->>>>>>> refs/remotes/titanshady/master
 
 
-<<<<<<< HEAD
 class choicesportf(models.Model):
 	APPROVAL_CHOICES = (
     ('Em Construção', 'Em Construção'),
@@ -126,27 +117,12 @@ class choicesportf(models.Model):
 	def __str__(self):
 		return self.approval
 
-=======
-	name = models.CharField('Nome', max_length=100,)
-	percent = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(100)])
-	##color = models.CharField(max_length=1, default='1')
-	color= RGBColorField()
-
-
-	def __str__(self):
-		return self.name
-
-		
->>>>>>> refs/remotes/titanshady/master
 	class Meta:
 		verbose_name = 'Classe de empresa'
 		verbose_name_plural = 'Classes de empresas'
+		ordering=['approval']
 
 class portfcl(models.Model):
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/titanshady/master
 	APPROVAL_CHOICES = (
     ('Em Construção', 'Em Construção'),
     ('Lançadas', 'Lançadas'),
@@ -154,11 +130,7 @@ class portfcl(models.Model):
 
 	descript = RichTextField('Nome & Descrição da Empresa',)
 	logo = models.ImageField(upload_to='sitio/images/portifolio', verbose_name='Logo',)
-<<<<<<< HEAD
 	andament = models.CharField(max_length=20, choices=APPROVAL_CHOICES, default='Em Construção',)
-=======
-	andament = models.CharField(max_length=9, choices=APPROVAL_CHOICES, default='const')
->>>>>>> refs/remotes/titanshady/master
 
 	def __str__(self):
 		return self.descript
@@ -167,7 +139,4 @@ class portfcl(models.Model):
 	class Meta:
 		verbose_name = '8 - Portifólio (Em Desenvolvimento)'
 		verbose_name_plural = '8 - Portifólio (Em Desenvolvimento)'
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/titanshady/master
+		ordering=['descript']

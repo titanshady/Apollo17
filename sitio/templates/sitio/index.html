@@ -138,14 +138,11 @@
 				
 				<ul>
 				{% for indicador in indicadors %}
-<<<<<<< HEAD
+
 
 					<li><div class="{{indicador.name}}" data-percent="{{indicador.percent}}"></div><p>{{indicador.name}}</p></li>
 
 
-=======
-					<li><div class="{{indicador.name}}" data-percent="{{indicador.percent}}"></div><p>{{indicador.name}}</p></li>
->>>>>>> refs/remotes/titanshady/master
 				{% endfor %}
 				</ul>
 				<!--circle-chart-->
@@ -183,14 +180,11 @@
 					<div class="team-img">
 						<img class="img-responsive" src="{{ astronauta.photo.url }}" alt="">
 						<div class="captn">
-<<<<<<< HEAD
+
 
 							<p> Parabéns Astronauta <span>{{ astronauta.tipo|capfirst }} </span>{{astronauta.text}}</p>
 
 
-=======
-						<p> Parabéns Astronauta <span>{{ astronauta.tipo|capfirst }} </span>{{ astronauta.texto }}</p>
->>>>>>> refs/remotes/titanshady/master
 							<div class="social-icons">
 								<ul>
 									<li><a href="#"> </a></li>
@@ -203,13 +197,11 @@
 						</div>
 					</div>
 					<div class="team-agile-{{astronauta.tipo|lower}}">
-<<<<<<< HEAD
+
 
 						<h4>Astronauta {{ astronauta.tipo|capfirst }}"</h4>
 
-=======
-						<h4>Astronauta {{ astronauta.tipo|capfirst }}</h4>
->>>>>>> refs/remotes/titanshady/master
+
 						<font color="#293D50"<h6>{{astronauta.name}}</h6></font>
 					</div>
 				</div>
@@ -254,23 +246,24 @@
 				<div class="clearfix"> </div>
 				<div class="resp-tabs-container">
 				{% for choicesportf in choicesportfs %}
-					<div class="tab-1 resp-tab-content">
-					{% for portfcl in portfcls %}
-						{% if portfcl.andament == choicesportf.approval %}
-							<div class="col-md-3 portfolio-grids">
-								<div class="gallery-grid">
-									<img src="{{ portfcl.logo.url }}" data-big-src="{{ portfcl.logo.url }}" class="img-responsive" alt=" ">
-									<p  style='opacity:0;display:none;'>{{portfcl.descript}}</p>
-								</div>
-							</div>
-						
-						{% endif %}
-					{% endfor %}
-						<div class="clearfix"> </div>
-						
-					</div>		
-					
-				{% endfor %}	
+ 					<div class="tab-1 resp-tab-content">
+ 					{% for portfcl in portfcls %}
+ 						{% if portfcl.andament == choicesportf.approval %}
+ 							<div class="col-md-3 portfolio-grids">
+ 								<div class="gallery-grid">
+ 									<img src="{{ portfcl.logo.url }}" data-big-src="{{ portfcl.logo.url }}" class="img-responsive" alt=" ">
+ 									<p  style='opacity:0;display:none;'>{{portfcl.descript}}</p>
+ 								</div>
+ 							</div>
+ 						
+ 						{% endif %}
+ 						
+ 					{% endfor %}
+ 						<div class="clearfix"> </div>
+ 						
+ 					</div>		
+ 					
+ 				{% endfor %}	
 				<!--
 					<div class="tab-1 resp-tab-content">
 					{% for portfc in portfcs %}
