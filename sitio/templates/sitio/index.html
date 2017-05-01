@@ -138,7 +138,11 @@
 				
 				<ul>
 				{% for indicador in indicadors %}
+
+
 					<li><div class="{{indicador.name}}" data-percent="{{indicador.percent}}"></div><p>{{indicador.name}}</p></li>
+
+
 				{% endfor %}
 				</ul>
 				<!--circle-chart-->
@@ -176,7 +180,11 @@
 					<div class="team-img">
 						<img class="img-responsive" src="{{ astronauta.photo.url }}" alt="">
 						<div class="captn">
-						<p> Parabéns Astronauta <span>{{ astronauta.tipo|capfirst }} </span>{{ astronauta.texto }}</p>
+
+
+							<p> Parabéns Astronauta <span>{{ astronauta.tipo|capfirst }} </span>{{astronauta.text}}</p>
+
+
 							<div class="social-icons">
 								<ul>
 									<li><a href="#"> </a></li>
@@ -189,7 +197,11 @@
 						</div>
 					</div>
 					<div class="team-agile-{{astronauta.tipo|lower}}">
-						<h4>Astronauta {{ astronauta.tipo|capfirst }}</h4>
+
+
+						<h4>Astronauta {{ astronauta.tipo|capfirst }}"</h4>
+
+
 						<font color="#293D50"<h6>{{astronauta.name}}</h6></font>
 					</div>
 				</div>
@@ -227,12 +239,32 @@
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
 				<ul class="resp-tabs-list">
-					<li class="resp-tab-item-"><span>Em Construção</span></li>
-					<li class="resp-tab-item"><span>Lançadas</span></li>
-									
+					{% for choicesportf in choicesportfs %}
+						<li class="resp-tab-item-"><span>{{choicesportf.approval}}</span></li>
+					{% endfor %}	
 				</ul>	
-				<div class="clearfix"> </div>	
+				<div class="clearfix"> </div>
 				<div class="resp-tabs-container">
+				{% for choicesportf in choicesportfs %}
+ 					<div class="tab-1 resp-tab-content">
+ 					{% for portfcl in portfcls %}
+ 						{% if portfcl.andament == choicesportf.approval %}
+ 							<div class="col-md-3 portfolio-grids">
+ 								<div class="gallery-grid">
+ 									<img src="{{ portfcl.logo.url }}" data-big-src="{{ portfcl.logo.url }}" class="img-responsive" alt=" ">
+ 									<p  style='opacity:0;display:none;'>{{portfcl.descript}}</p>
+ 								</div>
+ 							</div>
+ 						
+ 						{% endif %}
+ 						
+ 					{% endfor %}
+ 						<div class="clearfix"> </div>
+ 						
+ 					</div>		
+ 					
+ 				{% endfor %}	
+				<!--
 					<div class="tab-1 resp-tab-content">
 					{% for portfc in portfcs %}
 						<div class="col-md-3 portfolio-grids">
@@ -254,7 +286,7 @@
 						</div>
 						{% endfor %}
 						<div class="clearfix"> </div>
-					</div>
+					</div> -->
 		<!-- script for portfolio -->
 		<script type="text/javascript" src="{% static 'js/jquery.easy-gallery.js' %}" ></script>
 		<script type='text/javascript'>

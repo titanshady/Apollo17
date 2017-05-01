@@ -104,15 +104,33 @@ class indicador(models.Model):
 		verbose_name_plural = '4 - Andamento da Missão: Indicadores'
 
 
+class choicesportf(models.Model):
+	APPROVAL_CHOICES = (
+    ('Em Construção', 'Em Construção'),
+    ('Lançadas', 'Lançadas'),
+	)
+
+
+	approval = models.CharField(max_length=20, choices=APPROVAL_CHOICES, default='blank',)
+	
+
+	def __str__(self):
+		return self.approval
+
+	class Meta:
+		verbose_name = 'Classe de empresa'
+		verbose_name_plural = 'Classes de empresas'
+		ordering=['approval']
+
 class portfcl(models.Model):
 	APPROVAL_CHOICES = (
-    ('const', 'Em Construção'),
-    ('lanc', 'Lançados'),
+    ('Em Construção', 'Em Construção'),
+    ('Lançadas', 'Lançadas'),
 	)
 
 	descript = RichTextField('Nome & Descrição da Empresa',)
 	logo = models.ImageField(upload_to='sitio/images/portifolio', verbose_name='Logo',)
-	andament = models.CharField(max_length=9, choices=APPROVAL_CHOICES, default='const')
+	andament = models.CharField(max_length=20, choices=APPROVAL_CHOICES, default='Em Construção',)
 
 	def __str__(self):
 		return self.descript
@@ -121,3 +139,4 @@ class portfcl(models.Model):
 	class Meta:
 		verbose_name = '8 - Portifólio (Em Desenvolvimento)'
 		verbose_name_plural = '8 - Portifólio (Em Desenvolvimento)'
+		ordering=['descript']
