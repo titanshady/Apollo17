@@ -10,6 +10,9 @@ def index(request):
 	porl = portfl.objects.all()
 	indc = indicador.objects.all()
 	astro = astronauta.objects.order_by('name')
+	skil = mission.objects.filter(tipo='ski')
+	miss = mission.objects.filter(tipo='mis')
+	port = mission.objects.filter(tipo='por')
 	context = {
 		'initmess': slides,
 		'missions': mis,
@@ -18,6 +21,9 @@ def index(request):
 		'portfls': porl,
 		'indicadors': indc, 
 		'astronautas': astro,
+		'skil':skil,
+		'miss':miss,
+		'port':port,
 	}
 
 	return render(request, template_name, context)

@@ -127,12 +127,12 @@
 <p> </p>
         <!-- skills -->
                 
-                <div id="skills" class="skills">
-		<div class="container">
-		{% for mission in missions %}
-			<div class="agileits-title">
-				<h3>{{mission.title}}</h3>
-				<p>{{mission.text}}</p>
+		{% for mission in miss %}
+        <div id="skills" class="skills">
+			<div class="container">
+				<div class="agileits-title">
+					<h3>{{mission.title}}</h3>
+					<p>{{mission.text}}</p>
 			</div>
 			{% endfor %}
 			<div class="skill-info">
@@ -158,13 +158,15 @@
 	</div>
 	<!-- //skill -->
        
-        <!-- team -->
+        <!-- team -->		
+        {% for mission in skil %}
 	<div class="team" id="team">
 		<div class="container">
 			<div class="agileits-title">
-				<h3>Astronautas do Mês</h3>
-				<p>Politica de Reconhecimento Mensal para o trabalho prestado pelos membros da EJECT para a EJECT </p>
+				<h3>{{mission.title}}</h3>
+				<p>{{mission.text}}</p>
 			</div>
+		{% endfor %}
 			<div class="team-row">
 				{% for astronauta in astronautas %}
 				<div class="col-md-4 team-grids">
@@ -212,13 +214,15 @@
 	<!--//modal-sign-->
 	
 	<!-- portfolio -->
+	{% for mission in port %}
 	<div id="portfolio" class="portfolio">
 		<div class="container">
 			<div class="agileits-title">
-				<h3>Base de Lançamentos</h3>
-				<p>Aqui constam todas as naves que estamos desenvolvendo para lançarmos e as que já foram lançadas para o sucesso!</p>
+				<h3>{{mission.title}}</h3>
+				<p>{{mission.text}}</p>
 			</div> 
 		</div> 
+	{% endfor %}
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
 				<ul class="resp-tabs-list">

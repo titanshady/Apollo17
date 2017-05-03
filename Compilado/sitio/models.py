@@ -19,13 +19,27 @@ class mission(models.Model):
 	title = models.CharField('Título', max_length=200,)
 	text = models.TextField('Texto')
 
+	skills = 'ski' 
+	objective = 'mis'
+	portifolio = 'por'
+
+	Tipo = (
+		(skills, 'Astronautas'),
+		(objective, 'Missão'),
+		(portifolio, 'Portifólio'),
+	)
+	tipo = models.CharField(max_length = 3, choices = Tipo, default = skills)
+
+	def is_upperclass(self):
+		return self.tipo in (self.skills,self.objective,self.portifolio)
+
 	def __str__(self):
 		return self.title
 
 
 	class Meta:
-		verbose_name = '3 - Andamento da Missão: Texto'
-		verbose_name_plural = '3 - Andamento da Missão: Texto'		
+		verbose_name = '3 - Texto do Site'
+		verbose_name_plural = '3 - Textos do Site'		
 
 class valore(models.Model):
 	item = models.CharField('Missões',max_length=50,)
@@ -89,7 +103,7 @@ class portfl(models.Model):
 class indicador(models.Model):
 
 	name = models.CharField('Nome', max_length=100,)
-	percent = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(100)])
+	percent = models.PositiveIntegerField(primary_key=0, validators=[MaxValueValidator(100)])
 	##color = models.CharField(max_length=1, default='1')
 	color= RGBColorField()
 
