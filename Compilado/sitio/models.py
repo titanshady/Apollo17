@@ -51,8 +51,8 @@ class valore(models.Model):
 
 
 	class Meta:
-		verbose_name = '2 - Conquista da Empresa'
-		verbose_name_plural = '2 - Conquistas da Empresa'
+		verbose_name = '2 - Meta da Missão'
+		verbose_name_plural = '2 - Metas da Missão'
 
 class astronauta(models.Model):
 	APPROVAL_CHOICES = (
@@ -103,7 +103,10 @@ class portfl(models.Model):
 class indicador(models.Model):
 
 	name = models.CharField('Nome', max_length=100,)
-	percent = models.PositiveIntegerField(primary_key=0, validators=[MaxValueValidator(100)])
+	##percent = models.PositiveIntegerField(primary_key=0, validators=[MaxValueValidator(100)])
+	##percent = models.PositiveIntegerField('Percent',null=True, blank=True, max_length=3,)
+	meta2 = models.PositiveIntegerField('Meta', max_length=3,)
+	atual2 = models.PositiveIntegerField('Atual', max_length=3,)
 	##color = models.CharField(max_length=1, default='1')
 	color= RGBColorField()
 
@@ -115,3 +118,7 @@ class indicador(models.Model):
 	class Meta:
 		verbose_name = '4 - Andamento da Missão: Indicador'
 		verbose_name_plural = '4 - Andamento da Missão: Indicadores'
+
+
+
+

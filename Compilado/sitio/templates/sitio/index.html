@@ -136,22 +136,21 @@
 			</div>
 			{% endfor %}
 			<div class="skill-info">
-				
-				<ul>
+
 				{% for indicador in indicadors %}
-					<li><div class="{{indicador.name}}" data-percent="{{indicador.percent}}"></div><p>{{indicador.name}}</p></li>
-				{% endfor %}
+				<ul>
+					<li><div class="{{indicadors2.name}}" data-percent="{{percents}}"></div><p>{{indicadors2.name}}</p></li>
 				</ul>
 				<!--circle-chart-->
 				<script src="{% static 'js/jquery.circlechart.js' %}"></script>
-				{% for indicador in indicadors %}
 					<script>
-						$('.{{indicador.name}}').percentcircle({
+						$('.{{indicadors2.name}}').percentcircle({
 							animate : true,
-							fillColor: '{{indicador.color}}'
+							fillColor: '{{indicadors2.color}}'
 						});
 					</script>
-				{% endfor %}
+					{% endfor %}
+
 				<!--circle-chart-->
 			</div>
 		</div>
