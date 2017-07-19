@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import initmes, mission, valore, portfc, portfl, indicador, astronauta, portfcl, choicesportf
+from .models import initmes, mission, valore, portfc, portfl, indicador, astronauta
+
 
 def index(request):
 	template_name = 'sitio/index.html'
@@ -9,23 +10,26 @@ def index(request):
 	porc = portfc.objects.all()
 	porl = portfl.objects.all()
 	indc = indicador.objects.all()
-	portcl = portfcl.objects.all()
-
-	choice = choicesportf.objects.all()
-
-
+	indc2 = indicador.objects.all().first()
 	astro = astronauta.objects.order_by('name')
-
+	skil = mission.objects.filter(tipo='ski')
+	miss = mission.objects.filter(tipo='mis')
+	port = mission.objects.filter(tipo='por')
+	percent = ( indc2.atual2 / indc2.meta2) * 100
+	percent = int(percent)
 	context = {
 		'initmess': slides,
 		'missions': mis,
 		'valores': val,
 		'portfcs': porc,
 		'portfls': porl,
-		'indicadors': indc, 
+		'indicadors': indc,
+		'indicadors2':indc2, 
 		'astronautas': astro,
-		'portfcls': portcl,
-		'choicesportfs': choice,
+		'skil':skil,
+		'miss':miss,
+		'port':port,
+		'percents':percent,
 	}
 
 	return render(request, template_name, context)

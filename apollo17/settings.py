@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ofdnemp6mph)&@qgvl-scgu8%-rw1cijhk5!od5&r*&e^qf1_9'
+SECRET_KEY = '48!wwa-0+=52bu(gweui_^bc$c(3c*x6*b-*6(!*60^rn@qczu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,11 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # APPS INTERNOS
     'sitio',
-
-    #Libs
-    'ckeditor',
-    'ckeditor_uploader',
 ]
+
 INSTALLED_APPS.append('colorful')
 
 MIDDLEWARE = [
@@ -110,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
@@ -129,21 +126,3 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
-# CKEDITOR
-
-CKEDITOR_UPLOAD_PATH = 'uploads/'
-CKEDITOR_IMAGE_BACKEND = "pillow"
-CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
-CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
-
-CKEDITOR_CONFIGS = {
-    'awesome_ckeditor': {
-        'toolbar': 'Basic',
-    },
-    'default': {
-        'toolbar': 'full',
-        'height': 300,
-        'width': 700,
-    },
-}
