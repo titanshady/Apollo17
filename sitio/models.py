@@ -103,11 +103,8 @@ class portfl(models.Model):
 class indicador(models.Model):
 
 	name = models.CharField('Nome', max_length=100,)
-	##percent = models.PositiveIntegerField(primary_key=0, validators=[MaxValueValidator(100)])
-	##percent = models.PositiveIntegerField('Percent',null=True, blank=True, max_length=3,)
-	meta2 = models.PositiveIntegerField('Meta', max_length=3,)
-	atual2 = models.PositiveIntegerField('Atual', max_length=3,)
-	##color = models.CharField(max_length=1, default='1')
+	meta2 = models.PositiveIntegerField('Meta')
+	atual2 = models.PositiveIntegerField('Atual')
 	color= RGBColorField()
 
 

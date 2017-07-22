@@ -2,6 +2,10 @@
 Thumbs.db
 ehthumbs.db
 
+#Folders
+venv/
+Apollo17Static/
+
 # Folder config file
 Desktop.ini
 

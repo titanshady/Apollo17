@@ -125,42 +125,45 @@
 	</div>
 	<!-- //banner -->
 <p> </p>
-        <!-- skills -->
-                
-		{% for mission in miss %}
-        <div id="skills" class="skills">
-			<div class="container">
-				<div class="agileits-title">
-					<h3>{{mission.title}}</h3>
-					<p>{{mission.text}}</p>
-			</div>
-			{% endfor %}
-			<div class="skill-info">
+        <!-- skills --> 
 
-				{% for indicador in indicadors %}
+				<script src="{% static 'js/jquery.circlechart.js' %}"></script>
+    <div id="skills" class="skills">
+		<div class="container">
+		{% for mission in miss %}
+			<div class="agileits-title">
+				<h3>{{mission.title}}</h3>
+				<p>{{mission.text}}</p>
+				</div>
+		{% endfor %}
+				<div class="skills-row">
+				<div class="col-md-4 skills-grids">
+		{% for indicador in indicadors %}
+					<div class="skill-info">
 				<ul>
-					<li><div class="{{indicadors2.name}}" data-percent="{{percents}}"></div><p>{{indicadors2.name}}</p></li>
+					<li><div class="demo {{indicadors2.name}}" data-percent="{{percents}}"></div><p>{{indicadors2.name}}</p></li>
 				</ul>
 				<!--circle-chart-->
-				<script src="{% static 'js/jquery.circlechart.js' %}"></script>
 					<script>
 						$('.{{indicadors2.name}}').percentcircle({
 							animate : true,
 							fillColor: '{{indicadors2.color}}'
 						});
 					</script>
-					{% endfor %}
-
 				<!--circle-chart-->
+					</div>
+		{% endfor %}
+				</div>
+		<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
 	<!-- //skill -->
        
         <!-- team -->		
-        {% for mission in skil %}
 	<div class="team" id="team">
 		<div class="container">
+        {% for mission in skil %}
 			<div class="agileits-title">
 				<h3>{{mission.title}}</h3>
 				<p>{{mission.text}}</p>
@@ -186,14 +189,14 @@
 					</div>
 					<div class="team-agile-{{astronauta.tipo|lower}}">
 						<h4>Astronauta {{ astronauta.tipo|capfirst }}</h4>
-						<font color="#293D50"<h6>{{astronauta.name}}</h6></font>
+						<font color="#293D50"><h6>{{astronauta.name}}</h6></font>
 					</div>
 				</div>
 				{% endfor %}
 				<div class="clearfix"> </div>
+				</div>
 			</div>
 		</div>
-	</div>
 	<!-- //team -->
         
 	<!--modal-sign-->
