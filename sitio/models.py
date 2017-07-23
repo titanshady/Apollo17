@@ -111,6 +111,9 @@ class indicador(models.Model):
 	def __str__(self):
 		return self.name
 
+	def retornar(self):
+		return int(( self.atual2 / self.meta2) * 100)
+
 		
 	class Meta:
 		verbose_name = '4 - Andamento da Missão: Indicador'

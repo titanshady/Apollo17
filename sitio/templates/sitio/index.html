@@ -110,14 +110,14 @@
 					<!-- //FlexSlider -->
 				</div>
 				<div class="w3ls-bottom-text">
-					<ul>
 					{% for valore in valores %}
+					<ul>
 						<li>
 							<h3>{{valore.valor}}</h3>
 							<p>{{valore.item}}</p>
 						</li>
-						{% endfor %}				
 					</ul>
+						{% endfor %}				
 				</div>
 			</div>
 		</div>
@@ -141,7 +141,7 @@
 					<div class="skill-info">
 				<ul>
 					{% for indicador in indicadors %}
-					<li><div class="demo {{indicador.name}}" data-percent="{{percents}}"></div><p>{{indicador.name}}</p></li>
+					<li><div class="demo {{indicador.name}}" data-percent="{{indicador.retornar}}"></div><p>{{indicador.name}}</p></li>
 					<!--circle-chart-->
 					<script>
 						$('.{{indicador.name}}').percentcircle({

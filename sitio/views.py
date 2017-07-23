@@ -10,13 +10,10 @@ def index(request):
 	porc = portfc.objects.all()
 	porl = portfl.objects.all()
 	indc = indicador.objects.all()
-	indc2 = indicador.objects.all().first()
-	astro = astronauta.objects.order_by('name')
+	astro = astronauta.objects.order_by('tipo')
 	skil = mission.objects.filter(tipo='ski')
 	miss = mission.objects.filter(tipo='mis')
 	port = mission.objects.filter(tipo='por')
-	percent = ( indc2.atual2 / indc2.meta2) * 100
-	percent = int(percent)
 	context = {
 		'initmess': slides,
 		'missions': mis,
@@ -24,12 +21,10 @@ def index(request):
 		'portfcs': porc,
 		'portfls': porl,
 		'indicadors': indc,
-		'indicadors2':indc2, 
 		'astronautas': astro,
-		'skil':skil,
-		'miss':miss,
-		'port':port,
-		'percents':percent,
+		'skil': skil,
+		'miss': miss,
+		'port': port,
 	}
 
 	return render(request, template_name, context)
