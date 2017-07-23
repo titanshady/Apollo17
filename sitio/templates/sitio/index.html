@@ -137,22 +137,22 @@
 				</div>
 		{% endfor %}
 				<div class="skills-row">
-				<div class="col-md-4 skills-grids">
-		{% for indicador in indicadors %}
+				<div class="skills-grids">
 					<div class="skill-info">
 				<ul>
-					<li><div class="demo {{indicadors2.name}}" data-percent="{{percents}}"></div><p>{{indicadors2.name}}</p></li>
-				</ul>
-				<!--circle-chart-->
+					{% for indicador in indicadors %}
+					<li><div class="demo {{indicador.name}}" data-percent="{{percents}}"></div><p>{{indicador.name}}</p></li>
+					<!--circle-chart-->
 					<script>
-						$('.{{indicadors2.name}}').percentcircle({
+						$('.{{indicador.name}}').percentcircle({
 							animate : true,
-							fillColor: '{{indicadors2.color}}'
+							fillColor: '{{indicador.color}}'
 						});
 					</script>
 				<!--circle-chart-->
+					{% endfor %}
+				</ul>
 					</div>
-		{% endfor %}
 				</div>
 		<div class="clearfix"> </div>
 			</div>
